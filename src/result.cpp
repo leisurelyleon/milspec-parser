@@ -1,4 +1,5 @@
 #include "milspec/result.hpp"
+#include <string>
 
 // ValidationReport's helpers (is_clean, error_count) are defined inline in the
 // header. This translation unit exists so the library has a stable compilation
