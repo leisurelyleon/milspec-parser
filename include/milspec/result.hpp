@@ -60,3 +60,6 @@ struct ValidationReport {
 }  // namespace milspec
 
 #endif  // MILSPEC_RESULT_HPP
+
+/// A one-line human summary of a report.
+[[nodiscard]] std::string summarize(const ValidationReport& report);
