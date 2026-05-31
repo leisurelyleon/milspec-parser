@@ -55,11 +55,11 @@ struct ValidationReport {
         }
         return count;
     }
-};
+};   // <-- this closes struct ValidationReport
+
+/// A one-line human summary of a report.
+[[nodiscard]] std::string summarize(const ValidationReport& report);
 
 }  // namespace milspec
 
 #endif  // MILSPEC_RESULT_HPP
-
-/// A one-line human summary of a report.
-[[nodiscard]] std::string summarize(const ValidationReport& report);
