@@ -1,8 +1,7 @@
 #include "milspec/result.hpp"
+#include "milspec/schema.hpp"
 
 #include <gtest/gtest.h>
-
-#include "milspec/schema.hpp"
 
 TEST(ParseOutcome, OkCarriesValue) {
     const auto outcome = milspec::ParseOutcome<int>::ok(7);

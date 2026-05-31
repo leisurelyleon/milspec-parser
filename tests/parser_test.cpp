@@ -1,11 +1,9 @@
 #include "milspec/parser.hpp"
-
-#include <gtest/gtest.h>
-
-#include <vector>
-
 #include "milspec/schema.hpp"
 #include "milspec/violation.hpp"
+
+#include <gtest/gtest.h>
+#include <vector>
 
 namespace {
 
@@ -41,7 +39,7 @@ milspec::Schema fixed_schema() {
     return schema;
 }
 
-}  // namespace
+} // namespace
 
 TEST(Parser, DelimitedExtractsFields) {
     const milspec::Schema schema = delimited_schema();

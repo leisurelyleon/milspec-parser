@@ -8,14 +8,14 @@ namespace milspec {
 
 std::string to_string(FieldType type) {
     switch (type) {
-        case FieldType::Text:
-            return "text";
-        case FieldType::Integer:
-            return "integer";
-        case FieldType::Decimal:
-            return "decimal";
-        case FieldType::Date:
-            return "date";
+    case FieldType::Text:
+        return "text";
+    case FieldType::Integer:
+        return "integer";
+    case FieldType::Decimal:
+        return "decimal";
+    case FieldType::Date:
+        return "date";
     }
     return "text";
 }
@@ -99,23 +99,22 @@ bool is_date(const std::string& value) {
     return month >= 1 && month <= 12 && day >= 1 && day <= 31;
 }
 
-}  // namespace
+} // namespace
 
 std::optional<std::string> validate_type(FieldType type, const std::string& value) {
     switch (type) {
-        case FieldType::Text:
-            return std::nullopt;  // any text is type-valid; length checked elsewhere
-        case FieldType::Integer:
-            return is_integer(value) ? std::nullopt
-                                     : std::optional<std::string>("expected an integer");
-        case FieldType::Decimal:
-            return is_decimal(value) ? std::nullopt
-                                     : std::optional<std::string>("expected a decimal number");
-        case FieldType::Date:
-            return is_date(value) ? std::nullopt
-                                  : std::optional<std::string>("expected a YYYYMMDD date");
+    case FieldType::Text:
+        return std::nullopt; // any text is type-valid; length checked elsewhere
+    case FieldType::Integer:
+        return is_integer(value) ? std::nullopt : std::optional<std::string>("expected an integer");
+    case FieldType::Decimal:
+        return is_decimal(value) ? std::nullopt
+                                 : std::optional<std::string>("expected a decimal number");
+    case FieldType::Date:
+        return is_date(value) ? std::nullopt
+                              : std::optional<std::string>("expected a YYYYMMDD date");
     }
     return std::nullopt;
 }
 
-}  // namespace milspec
+} // namespace milspec

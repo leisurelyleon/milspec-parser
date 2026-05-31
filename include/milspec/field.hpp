@@ -42,6 +42,6 @@ struct FieldSpec {
 /// error message when invalid, or std::nullopt when valid.
 [[nodiscard]] std::optional<std::string> validate_type(FieldType type, const std::string& value);
 
-}  // namespace milspec
+} // namespace milspec
 
-#endif  // MILSPEC_FIELD_HPP
+#endif // MILSPEC_FIELD_HPP

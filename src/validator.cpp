@@ -1,10 +1,10 @@
 #include "milspec/validator.hpp"
 
-#include <sstream>
-#include <string>
-
 #include "milspec/field.hpp"
 #include "milspec/parser.hpp"
+
+#include <sstream>
+#include <string>
 
 namespace milspec {
 
@@ -16,7 +16,7 @@ std::size_t field_column(const Schema& schema, const FieldSpec& field) {
     return schema.kind() == FormatKind::FixedWidth ? field.start + 1 : field.index + 1;
 }
 
-}  // namespace
+} // namespace
 
 void Validator::validate_record(const ParsedRecord& record,
                                 std::vector<Violation>& violations) const {
@@ -30,7 +30,7 @@ void Validator::validate_record(const ParsedRecord& record,
                 violations.emplace_back(record.line, column, field.name, Severity::Error,
                                         "required field is empty");
             }
-            continue;  // nothing further to check on an empty value
+            continue; // nothing further to check on an empty value
         }
 
         // Type validity.
@@ -44,8 +44,7 @@ void Validator::validate_record(const ParsedRecord& record,
         if (field.exact_length.has_value() && value.size() != field.exact_length.value()) {
             violations.emplace_back(record.line, column, field.name, Severity::Error,
                                     "expected exactly " +
-                                        std::to_string(field.exact_length.value()) +
-                                        " characters");
+                                        std::to_string(field.exact_length.value()) + " characters");
         }
 
         // Numeric range constraints.
@@ -95,4 +94,4 @@ ValidationReport Validator::validate_input(const std::string& input) const {
     return report;
 }
 
-}  // namespace milspec
+} // namespace milspec

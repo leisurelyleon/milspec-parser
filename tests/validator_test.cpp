@@ -1,15 +1,13 @@
+#include "milspec/schema.hpp"
 #include "milspec/validator.hpp"
 
 #include <gtest/gtest.h>
 
-#include "milspec/schema.hpp"
-
 namespace {
 
-const char* kSchema =
-    "format delimited ,\n"
-    "field sku text required delim 0\n"
-    "field qty integer required delim 1\n";
+const char* kSchema = "format delimited ,\n"
+                      "field sku text required delim 0\n"
+                      "field qty integer required delim 1\n";
 
 milspec::Schema load_or_die() {
     const auto outcome = milspec::Schema::load(kSchema);
@@ -17,7 +15,7 @@ milspec::Schema load_or_die() {
     return outcome.value();
 }
 
-}  // namespace
+} // namespace
 
 TEST(Validator, AcceptsValidRecord) {
     const milspec::Schema schema = load_or_die();

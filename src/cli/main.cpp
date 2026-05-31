@@ -1,11 +1,11 @@
+#include "milspec/result.hpp"
+#include "milspec/schema.hpp"
+#include "milspec/validator.hpp"
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
-
-#include "milspec/result.hpp"
-#include "milspec/schema.hpp"
-#include "milspec/validator.hpp"
 
 namespace {
 
@@ -93,7 +93,7 @@ void print_usage() {
     std::cout << "  describe <schema>          Print a schema's structure\n";
 }
 
-}  // namespace
+} // namespace
 
 int main(int argc, char** argv) {
     if (argc < 2) {

@@ -1,11 +1,11 @@
 #ifndef MILSPEC_SCHEMA_HPP
 #define MILSPEC_SCHEMA_HPP
 
-#include <string>
-#include <vector>
-
 #include "milspec/field.hpp"
 #include "milspec/result.hpp"
+
+#include <string>
+#include <vector>
 
 namespace milspec {
 
@@ -17,12 +17,22 @@ class Schema {
 public:
     Schema(FormatKind kind, char delimiter = ',') : kind_(kind), delimiter_(delimiter) {}
 
-    void add_field(FieldSpec field) { fields_.push_back(std::move(field)); }
+    void add_field(FieldSpec field) {
+        fields_.push_back(std::move(field));
+    }
 
-    [[nodiscard]] FormatKind kind() const { return kind_; }
-    [[nodiscard]] char delimiter() const { return delimiter_; }
-    [[nodiscard]] const std::vector<FieldSpec>& fields() const { return fields_; }
-    [[nodiscard]] std::size_t field_count() const { return fields_.size(); }
+    [[nodiscard]] FormatKind kind() const {
+        return kind_;
+    }
+    [[nodiscard]] char delimiter() const {
+        return delimiter_;
+    }
+    [[nodiscard]] const std::vector<FieldSpec>& fields() const {
+        return fields_;
+    }
+    [[nodiscard]] std::size_t field_count() const {
+        return fields_.size();
+    }
 
     /// For fixed-width schemas, the total expected record width.
     [[nodiscard]] std::size_t record_width() const;
@@ -37,6 +47,6 @@ private:
     std::vector<FieldSpec> fields_;
 };
 
-}  // namespace milspec
+} // namespace milspec
 
-#endif  // MILSPEC_SCHEMA_HPP
+#endif // MILSPEC_SCHEMA_HPP

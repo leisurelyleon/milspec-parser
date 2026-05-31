@@ -25,8 +25,9 @@ TEST(Field, ValidatesDecimals) {
 
 TEST(Field, ValidatesDates) {
     EXPECT_FALSE(milspec::validate_type(milspec::FieldType::Date, "20260115").has_value());
-    EXPECT_TRUE(milspec::validate_type(milspec::FieldType::Date, "20261315").has_value()); // bad month
-    EXPECT_TRUE(milspec::validate_type(milspec::FieldType::Date, "2026").has_value());     // too short
+    EXPECT_TRUE(
+        milspec::validate_type(milspec::FieldType::Date, "20261315").has_value());     // bad month
+    EXPECT_TRUE(milspec::validate_type(milspec::FieldType::Date, "2026").has_value()); // too short
 }
 
 TEST(Field, TextAlwaysTypeValid) {

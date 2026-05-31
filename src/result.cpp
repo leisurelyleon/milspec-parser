@@ -1,4 +1,5 @@
 #include "milspec/result.hpp"
+
 #include <string>
 
 // ValidationReport's helpers (is_clean, error_count) are defined inline in the
@@ -10,9 +11,9 @@ namespace milspec {
 
 // Renders a one-line human summary of a report.
 std::string summarize(const ValidationReport& report) {
-    return "records: " + std::to_string(report.records_read) + ", valid: " +
-           std::to_string(report.records_valid) + ", violations: " +
-           std::to_string(report.violations.size());
+    return "records: " + std::to_string(report.records_read) +
+           ", valid: " + std::to_string(report.records_valid) +
+           ", violations: " + std::to_string(report.violations.size());
 }
 
-}  // namespace milspec
+} // namespace milspec

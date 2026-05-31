@@ -1,13 +1,13 @@
 #ifndef MILSPEC_PARSER_HPP
 #define MILSPEC_PARSER_HPP
 
-#include <cstddef>
-#include <string>
-#include <vector>
-
 #include "milspec/record.hpp"
 #include "milspec/result.hpp"
 #include "milspec/schema.hpp"
+
+#include <cstddef>
+#include <string>
+#include <vector>
 
 namespace milspec {
 
@@ -28,6 +28,6 @@ private:
     const Schema& schema_;
 };
 
-}  // namespace milspec
+} // namespace milspec
 
-#endif  // MILSPEC_PARSER_HPP
+#endif // MILSPEC_PARSER_HPP

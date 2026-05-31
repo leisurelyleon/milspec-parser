@@ -29,7 +29,7 @@ std::string trim(const std::string& text) {
     return text.substr(first, last - first + 1);
 }
 
-}  // namespace
+} // namespace
 
 ParseOutcome<Schema> Schema::load(const std::string& text) {
     // Schema format (one directive per line):
@@ -84,8 +84,8 @@ ParseOutcome<Schema> Schema::load(const std::string& text) {
 
             const std::optional<FieldType> type = field_type_from_string(type_word);
             if (!type.has_value()) {
-                return ParseOutcome<Schema>::err("unknown field type '" + type_word +
-                                                 "' on line " + std::to_string(line_no));
+                return ParseOutcome<Schema>::err("unknown field type '" + type_word + "' on line " +
+                                                 std::to_string(line_no));
             }
             spec.type = type.value();
             spec.required = (req_word == "required");
@@ -132,4 +132,4 @@ ParseOutcome<Schema> Schema::load(const std::string& text) {
     return ParseOutcome<Schema>::ok(std::move(schema));
 }
 
-}  // namespace milspec
+} // namespace milspec

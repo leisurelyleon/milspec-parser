@@ -1,30 +1,39 @@
 #ifndef MILSPEC_RESULT_HPP
 #define MILSPEC_RESULT_HPP
 
+#include "milspec/violation.hpp"
+
 #include <string>
 #include <utility>
 #include <variant>
 #include <vector>
 
-#include "milspec/violation.hpp"
-
 namespace milspec {
 
 /// A success-or-error outcome for operations that produce a value of type T
 /// (e.g. loading a schema), without using exceptions.
-template <typename T>
-class ParseOutcome {
+template <typename T> class ParseOutcome {
 public:
-    [[nodiscard]] static ParseOutcome ok(T value) { return ParseOutcome(std::move(value)); }
+    [[nodiscard]] static ParseOutcome ok(T value) {
+        return ParseOutcome(std::move(value));
+    }
     [[nodiscard]] static ParseOutcome err(std::string message) {
         return ParseOutcome(Failure{std::move(message)});
     }
 
-    [[nodiscard]] bool is_ok() const { return std::holds_alternative<T>(data_); }
-    [[nodiscard]] bool is_err() const { return !is_ok(); }
+    [[nodiscard]] bool is_ok() const {
+        return std::holds_alternative<T>(data_);
+    }
+    [[nodiscard]] bool is_err() const {
+        return !is_ok();
+    }
 
-    [[nodiscard]] const T& value() const { return std::get<T>(data_); }
-    [[nodiscard]] const std::string& error() const { return std::get<Failure>(data_).message; }
+    [[nodiscard]] const T& value() const {
+        return std::get<T>(data_);
+    }
+    [[nodiscard]] const std::string& error() const {
+        return std::get<Failure>(data_).message;
+    }
 
 private:
     struct Failure {
@@ -44,7 +53,9 @@ struct ValidationReport {
     std::size_t records_valid{0};
     std::vector<Violation> violations;
 
-    [[nodiscard]] bool is_clean() const { return violations.empty(); }
+    [[nodiscard]] bool is_clean() const {
+        return violations.empty();
+    }
 
     [[nodiscard]] std::size_t error_count() const {
         std::size_t count = 0;
@@ -55,11 +66,11 @@ struct ValidationReport {
         }
         return count;
     }
-};   // <-- this closes struct ValidationReport
+}; // <-- this closes struct ValidationReport
 
 /// A one-line human summary of a report.
 [[nodiscard]] std::string summarize(const ValidationReport& report);
 
-}  // namespace milspec
+} // namespace milspec
 
-#endif  // MILSPEC_RESULT_HPP
+#endif // MILSPEC_RESULT_HPP

@@ -29,7 +29,7 @@ std::vector<std::string> split(const std::string& line, char delimiter) {
     return fields;
 }
 
-}  // namespace
+} // namespace
 
 ParsedRecord Parser::parse_line(const std::string& line, std::size_t line_no,
                                 std::vector<Violation>& violations) const {
@@ -69,4 +69,4 @@ ParsedRecord Parser::parse_line(const std::string& line, std::size_t line_no,
     return record;
 }
 
-}  // namespace milspec
+} // namespace milspec

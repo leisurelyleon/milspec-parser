@@ -1,12 +1,12 @@
 #ifndef MILSPEC_VALIDATOR_HPP
 #define MILSPEC_VALIDATOR_HPP
 
-#include <string>
-#include <vector>
-
 #include "milspec/record.hpp"
 #include "milspec/result.hpp"
 #include "milspec/schema.hpp"
+
+#include <string>
+#include <vector>
 
 namespace milspec {
 
@@ -27,6 +27,6 @@ private:
     const Schema& schema_;
 };
 
-}  // namespace milspec
+} // namespace milspec
 
-#endif  // MILSPEC_VALIDATOR_HPP
+#endif // MILSPEC_VALIDATOR_HPP

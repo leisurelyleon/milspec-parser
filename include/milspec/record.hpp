@@ -9,7 +9,7 @@ namespace milspec {
 
 /// A parsed record: field name -> raw extracted value, with source line.
 struct ParsedRecord {
-    std::size_t line;  // 1-based source line this record came from
+    std::size_t line; // 1-based source line this record came from
     std::unordered_map<std::string, std::string> values;
 
     [[nodiscard]] bool has(const std::string& field) const {
@@ -23,6 +23,6 @@ struct ParsedRecord {
     }
 };
 
-}  // namespace milspec
+} // namespace milspec
 
-#endif  // MILSPEC_RECORD_HPP
+#endif // MILSPEC_RECORD_HPP
