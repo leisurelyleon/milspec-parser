@@ -57,7 +57,7 @@ TEST(Parser, DelimitedMissingFieldReportsViolation) {
     milspec::Parser parser(schema);
     std::vector<milspec::Violation> violations;
 
-    (void)parser.parse_line("WIDGET", 3, violations); // missing qty
+    (void) parser.parse_line("WIDGET", 3, violations); // missing qty
     ASSERT_EQ(violations.size(), 1u);
     EXPECT_EQ(violations[0].line, 3u);
     EXPECT_EQ(violations[0].field, "qty");
@@ -79,7 +79,7 @@ TEST(Parser, FixedWidthShortLineReportsViolation) {
     milspec::Parser parser(schema);
     std::vector<milspec::Violation> violations;
 
-    (void)parser.parse_line("ABC", 5, violations); // shorter than record width (10)
+    (void) parser.parse_line("ABC", 5, violations); // shorter than record width (10)
     EXPECT_FALSE(violations.empty());
     EXPECT_EQ(violations[0].line, 5u);
 }
