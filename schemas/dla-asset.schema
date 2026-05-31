@@ -1,0 +1,8 @@
+# DLA asset record schema (delimited, comma-separated).
+# Columns: nsn, nomenclature, quantity, unit_price, received_date
+format delimited ,
+field nsn         text     required delim 0
+field nomenclature text    required delim 1
+field quantity    integer  required delim 2
+field unit_price  decimal  required delim 3
+field received_date date    required delim 4
